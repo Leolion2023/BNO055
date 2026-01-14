@@ -1,8 +1,20 @@
-Sample SW for using BNO055 with Arduino
+# BNO055 Arduino Library
+
+Sample SW for using BNO055 with Arduino and ESP32
 
 [![Check Arduino status](https://github.com/arduino-libraries/BNO055/actions/workflows/check-arduino.yml/badge.svg)](https://github.com/arduino-libraries/BNO055/actions/workflows/check-arduino.yml)
 [![Compile Examples status](https://github.com/arduino-libraries/BNO055/actions/workflows/compile-examples.yml/badge.svg)](https://github.com/arduino-libraries/BNO055/actions/workflows/compile-examples.yml)
 [![Spell Check status](https://github.com/arduino-libraries/BNO055/actions/workflows/spell-check.yml/badge.svg)](https://github.com/arduino-libraries/BNO055/actions/workflows/spell-check.yml)
+
+## Documentation
+
+📖 **[German Documentation / Deutsche Dokumentation](README_DE.md)** - Comprehensive guide in German for beginners / Umfassende Anleitung auf Deutsch für Anfänger
+
+## About
+
+This library enables easy use of the BNO055 9-axis orientation sensor with Arduino and ESP32 microcontrollers. The BNO055 is an intelligent sensor that combines accelerometer, gyroscope, and magnetometer with on-chip sensor fusion.
+
+## License
 
 (C) All rights reserved by ROBERT BOSCH GMBH
 
