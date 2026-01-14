@@ -53,8 +53,11 @@ Der **BNO055** ist ein absoluter Orientierungssensor von Bosch Sensortec. Er kom
 - **Spannungsversorgung**: 3.3V (wichtig!)
 
 ### Wichtige Hinweise:
-⚠️ **Der BNO055 arbeitet mit 3.3V** - die Verwendung von 5V kann den Sensor beschädigen!  
-⚠️ Wenn Sie einen 5V Arduino verwenden, benötigen Sie Level-Shifter für die I2C-Leitungen oder einen Sensor mit integriertem Spannungsregler.
+- Es gibt mehrere Varianten des Sensors: Der einfache IC-Chip und der Chip mit Platine.
+- ⚠️ **Der BNO055-Chip arbeitet mit 3.3V** - die Verwendung von 5V kann den Sensor beschädigen!  
+- ⚠️ Wenn Sie einen 5V Arduino verwenden, benötigen Sie Level-Shifter für die I2C-Leitungen oder einen Sensor mit integriertem Spannungsregler.
+
+⚠️ Dies gilt allerdings nur für den Chip, manche Platinen beinhalten einen Level-Shifter für die Verwendung mit 5V, bitte überprüfen sie dazu das Datenblatt.
 
 ---
 
