@@ -923,7 +923,19 @@ void loop() {
    - Implementieren Sie einen gleitenden Durchschnitt
    - Beispiel:
      ```cpp
-     float smoothedValue = 0.9 * oldValue + 0.1 * newValue;
+     // Globale Variable für geglätteten Wert
+     float smoothedHeading = 0.0;
+     
+     void loop() {
+       struct bno055_euler euler;
+       bno055_read_euler_hrp(&euler);
+       float newHeading = euler.h / 16.0;
+       
+       // Exponentieller gleitender Durchschnitt (90% alt, 10% neu)
+       smoothedHeading = 0.9 * smoothedHeading + 0.1 * newHeading;
+       
+       Serial.println(smoothedHeading);
+     }
      ```
    
 3. **IMU-Modus verwenden**
@@ -937,7 +949,12 @@ void loop() {
 **Lösungen:**
 1. **Datenrate erhöhen**
    ```cpp
-   bno055_set_data_output_rate(FASTEST_MODE_1);
+   // FASTEST_MODE_1 = 100 Hz (höchste Datenrate)
+   // FASTEST_MODE_2 = 100 Hz
+   // GAME_MODE = 100 Hz
+   // UI_MODE = 50 Hz
+   // NORMAL_MODE = 100 Hz (empfohlen für die meisten Anwendungen)
+   bno055_set_data_output_rate(FASTEST_MODE_1);  // 100 Hz
    ```
    
 2. **I2C-Taktrate erhöhen**
@@ -957,7 +974,7 @@ void loop() {
    - ESP32 kann manchmal I2C-Timing-Probleme haben
    - Versuchen Sie:
      ```cpp
-     Wire.setTimeOut(1000);  // 1 Sekunde Timeout
+     Wire.setTimeout(1000);  // 1 Sekunde Timeout (in Millisekunden)
      ```
 
 ---
