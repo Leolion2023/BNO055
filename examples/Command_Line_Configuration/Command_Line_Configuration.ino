@@ -36,10 +36,12 @@
 // #define BNO055_I2C_ADDR                 BNO055_I2C_ADDR2
 
 //Pin assignments as tested on the Arduino Due.
-//Vdd,Vddio : 3.3V
+//VIN : 3.3V
 //GND : GND
-//SDA/SCL : SDA/SCL
-//PSO/PS1 : GND/GND (I2C mode)
+//SDA/Tx : SDA
+//SCL/Rx : SCL
+//ADD : GND (I2C address 0x28) or 3.3V (I2C address 0x29)
+//INT, BOOT, RST : Not connected (optional pins)
 
 //This structure contains the details of the BNO055 device that is connected. (Updated after initialization)
 struct bno055_t myBNO;

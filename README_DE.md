@@ -65,27 +65,34 @@ Der **BNO055** ist ein absoluter Orientierungssensor von Bosch Sensortec. Er kom
 
 ### Standard I2C-Verbindung:
 
-| BNO055 Pin | Arduino Due/ESP32 | Arduino Uno/Mega (mit Level-Shifter) |
-|------------|-------------------|---------------------------------------|
-| VIN        | 3.3V              | 3.3V oder 5V (je nach Modul)         |
-| GND        | GND               | GND                                   |
-| SDA        | SDA (Pin 20)      | A4 (Uno) / Pin 20 (Mega)             |
-| SCL        | SCL (Pin 21)      | A5 (Uno) / Pin 21 (Mega)             |
-| PS0        | GND               | GND (für I2C-Modus)                  |
-| PS1        | GND               | GND (für I2C-Modus)                  |
+| BNO055 Pin | Arduino Due/ESP32 | Arduino Uno/Mega (mit Level-Shifter) | Beschreibung |
+|------------|-------------------|---------------------------------------|--------------|
+| VIN        | 3.3V              | 3.3V oder 5V (je nach Modul)         | Spannungsversorgung |
+| GND        | GND               | GND                                   | Masse |
+| SDA/Tx     | SDA (Pin 20)      | A4 (Uno) / Pin 20 (Mega)             | I2C Daten (SDA im I2C-Modus) |
+| SCL/Rx     | SCL (Pin 21)      | A5 (Uno) / Pin 21 (Mega)             | I2C Takt (SCL im I2C-Modus) |
+| ADD        | GND               | GND                                   | Adressauswahl (siehe Hinweise) |
+| INT        | nicht verbunden   | nicht verbunden                       | Interrupt-Pin (optional) |
+| BOOT       | nicht verbunden   | nicht verbunden                       | Boot-Modus (optional) |
+| RST        | nicht verbunden   | nicht verbunden                       | Reset-Pin (optional) |
 
 ### ESP32 Verkabelung:
 
-| BNO055 Pin | ESP32           |
-|------------|-----------------|
-| VIN        | 3.3V            |
-| GND        | GND             |
-| SDA        | GPIO 21 (oder frei wählbar) |
-| SCL        | GPIO 22 (oder frei wählbar) |
-| PS0        | GND             |
-| PS1        | GND             |
+| BNO055 Pin | ESP32                       | Beschreibung |
+|------------|-----------------------------|--------------|
+| VIN        | 3.3V                        | Spannungsversorgung |
+| GND        | GND                         | Masse |
+| SDA/Tx     | GPIO 21 (oder frei wählbar) | I2C Daten |
+| SCL/Rx     | GPIO 22 (oder frei wählbar) | I2C Takt |
+| ADD        | GND                         | Adresse 0x28 (Standard) |
+| INT        | nicht verbunden             | Interrupt-Pin (optional) |
+| BOOT       | nicht verbunden             | Boot-Modus (optional) |
+| RST        | nicht verbunden             | Reset-Pin (optional) |
 
-**Hinweis:** PS0 und PS1 auf GND setzen, um den I2C-Modus zu aktivieren.
+**Hinweise:** 
+- Der ADD-Pin bestimmt die I2C-Adresse: GND = 0x28 (Standard), 3.3V = 0x29
+- Die Pins SDA/Tx und SCL/Rx funktionieren im I2C-Modus als SDA und SCL
+- INT, BOOT und RST sind optionale Pins und müssen für den Normalbetrieb nicht verbunden werden
 
 ---
 
@@ -856,11 +863,11 @@ void loop() {
 **Mögliche Ursachen:**
 1. **Falsche Verkabelung**
    - Überprüfen Sie alle Verbindungen
-   - Stellen Sie sicher, dass SDA und SCL nicht vertauscht sind
+   - Stellen Sie sicher, dass SDA/Tx und SCL/Rx nicht vertauscht sind
    
 2. **Falsche I2C-Adresse**
-   - Standard ist 0x28 (wenn PS1 auf GND)
-   - Kann auch 0x29 sein (wenn PS1 auf VCC)
+   - Standard ist 0x28 (wenn ADD auf GND)
+   - Kann auch 0x29 sein (wenn ADD auf 3.3V)
    - Ändern Sie in BNO055.h:
      ```cpp
      #define BNO055_I2C_ADDR BNO055_I2C_ADDR1  // oder ADDR2
