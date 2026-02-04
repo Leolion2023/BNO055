@@ -41,7 +41,7 @@
 //SDA/Tx : SDA
 //SCL/Rx : SCL
 //ADD : GND (I2C address 0x28) or 3.3V (I2C address 0x29)
-//INT, BOOT, REST : Not connected (optional pins)
+//INT, BOOT, RST : Not connected (optional pins)
 
 //This structure contains the details of the BNO055 device that is connected. (Updated after initialization)
 struct bno055_t myBNO;

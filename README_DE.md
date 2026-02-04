@@ -74,7 +74,7 @@ Der **BNO055** ist ein absoluter Orientierungssensor von Bosch Sensortec. Er kom
 | ADD        | GND               | GND (für Adresse 0x28) oder 3.3V (für Adresse 0x29) | Adressauswahl |
 | INT        | nicht verbunden   | nicht verbunden                       | Interrupt-Pin (optional) |
 | BOOT       | nicht verbunden   | nicht verbunden                       | Boot-Modus (optional) |
-| REST       | nicht verbunden   | nicht verbunden                       | Reset-Pin (optional) |
+| RST        | nicht verbunden   | nicht verbunden                       | Reset-Pin (optional) |
 
 ### ESP32 Verkabelung:
 
@@ -87,12 +87,12 @@ Der **BNO055** ist ein absoluter Orientierungssensor von Bosch Sensortec. Er kom
 | ADD        | GND                         | Adresse 0x28 (Standard) |
 | INT        | nicht verbunden             | Interrupt-Pin (optional) |
 | BOOT       | nicht verbunden             | Boot-Modus (optional) |
-| REST       | nicht verbunden             | Reset-Pin (optional) |
+| RST        | nicht verbunden             | Reset-Pin (optional) |
 
 **Hinweise:** 
 - Der ADD-Pin bestimmt die I2C-Adresse: GND = 0x28 (Standard), 3.3V = 0x29
 - Die Pins SDA/Tx und SCL/Rx funktionieren im I2C-Modus als SDA und SCL
-- INT, BOOT und REST sind optionale Pins und müssen für den Normalbetrieb nicht verbunden werden
+- INT, BOOT und RST sind optionale Pins und müssen für den Normalbetrieb nicht verbunden werden
 
 ---
 
