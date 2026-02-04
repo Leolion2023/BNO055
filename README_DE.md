@@ -71,7 +71,7 @@ Der **BNO055** ist ein absoluter Orientierungssensor von Bosch Sensortec. Er kom
 | GND        | GND               | GND                                   | Masse |
 | SDA/Tx     | SDA (Pin 20)      | A4 (Uno) / Pin 20 (Mega)             | I2C Daten (SDA im I2C-Modus) |
 | SCL/Rx     | SCL (Pin 21)      | A5 (Uno) / Pin 21 (Mega)             | I2C Takt (SCL im I2C-Modus) |
-| ADD        | GND               | GND (für Adresse 0x28) oder 3.3V (für Adresse 0x29) | Adressauswahl |
+| ADD        | GND               | GND                                   | Adressauswahl (siehe Hinweise) |
 | INT        | nicht verbunden   | nicht verbunden                       | Interrupt-Pin (optional) |
 | BOOT       | nicht verbunden   | nicht verbunden                       | Boot-Modus (optional) |
 | RST        | nicht verbunden   | nicht verbunden                       | Reset-Pin (optional) |
@@ -867,7 +867,7 @@ void loop() {
    
 2. **Falsche I2C-Adresse**
    - Standard ist 0x28 (wenn ADD auf GND)
-   - Kann auch 0x29 sein (wenn ADD auf VCC/3.3V)
+   - Kann auch 0x29 sein (wenn ADD auf 3.3V)
    - Ändern Sie in BNO055.h:
      ```cpp
      #define BNO055_I2C_ADDR BNO055_I2C_ADDR1  // oder ADDR2
