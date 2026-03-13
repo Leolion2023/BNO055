@@ -14,6 +14,8 @@ Sample SW for using BNO055 with Arduino and ESP32
 
 This library enables easy use of the BNO055 9-axis orientation sensor with Arduino and ESP32 microcontrollers. The BNO055 is an intelligent sensor that combines accelerometer, gyroscope, and magnetometer with on-chip sensor fusion.
 
+It is an unofficial fork of the official Bosch library. The idea behind it is only to write a documentation about it, so someone without much knowledge can work with this sensor.
+
 ## License
 
 (C) All rights reserved by ROBERT BOSCH GMBH
